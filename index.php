@@ -4,6 +4,7 @@ define('DBNAME', 'phurlite.sqlite3.db');
 define('SHORT_STR_LEN', 4);
 define('SHORT_CHARS', '0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ');
 define('HOST', $_SERVER['HTTP_HOST']);
+define('ROOT_REDIRECT', false);  // Set URL to redirect to
 
 $create_table = !file_exists(DBNAME);
 
@@ -42,6 +43,11 @@ if (isset($_GET['list'])) {
         echo '<tr><td>' . shortlink_html($row['short']) . "</td><td>{$row['url']}</td><td>{$row['hits']}</td></tr>";
     }
     echo '</table>';
+    exit();
+}
+
+if (ROOT_REDIRECT) {
+	header('Location: ' . ROOT_REDIRECT);
 }
 
 function add_url($url, $custom, &$db)
@@ -58,7 +64,7 @@ function add_url($url, $custom, &$db)
             }
             http_response_code(409);
             echo 'This custom short code is already in use.';
-            exit;
+            exit();
         }
         $short = $custom;
     } else {
