@@ -17,6 +17,7 @@ Goals of this script:
 
 - PHP 7+
 - SQLite3+
+- Apache (.htaccess)
 
 ## How it works
 
