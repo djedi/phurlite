@@ -111,7 +111,7 @@ function add_hit($url, &$db)
 
 function shortlink($short_str)
 {
-    return 'http://' . HOST . '/' . $short_str;
+    return $_SERVER['REQUEST_SCHEME'] . '://' . HOST . '/' . $short_str;
 }
 
 function shortlink_html($short_str)
