@@ -1,0 +1,26 @@
+{
+  "name": "Phurlite Short-link Generator",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This extension provides a quick way to generate short URLs with your self-hosted Phurlite URL shortener.",
+  "homepage_url": "https://github.com/djedi/phurlite",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "options_page": "src/options_custom/index.html",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Phurlite",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "clipboardWrite",
+    "notifications",
+    "tabs",
+    "https://*/*",
+    "http://*/*"
+  ]
+}
